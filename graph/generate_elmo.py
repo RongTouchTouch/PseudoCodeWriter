@@ -3,7 +3,7 @@ import tensorflow_hub as hub
 import h5py
 import numpy as np
 import json
-print tf.__version__
+print(tf.__version__)
 from util import set_gpus
 def Elmo(fn, outfn):
       with open(fn) as f:
@@ -20,7 +20,7 @@ def Elmo(fn, outfn):
                   #for line in fin:
                   for i in range(len(sents)):
                         if i % 100 == 0:
-                              print 'Finished ' + str(i)
+                              print('Finished ' + str(i))
                         doc = sents[i]
                         docid = docids[i]
                         for j in range(len(doc)):

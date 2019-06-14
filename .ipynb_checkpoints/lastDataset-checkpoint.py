@@ -9,7 +9,7 @@ class dataset:
 
   def __init__(self, args):
     args.path = args.datadir + args.data
-    print("Loading Data from ", args.path)
+    print("Loading Data from ",args.path)
     self.args = args
     self.mkVocabs(args)
     print("Vocab sizes:")
@@ -83,13 +83,13 @@ class dataset:
     self.ENT.is_target = False 
     self.fields = [("src", self.INP), ("ent", self.ENT), ("nerd", self.NERD), ("rel", self.REL),
                    ("out", self.OUTP), ("sorder", self.SORDER)]
-    train = data.TabularDataset(path=args.path, format='tsv', fields=self.fields)
+    train = data.TabularDataset(path=args.path, format='tsv',fields=self.fields)
     
     print('building vocab')
 
     self.OUTP.build_vocab(train, min_freq=args.outunk)
-    generics = ['<variable>', '<system>', '<interface>', '<hardware>', '<constant>', '<statevariable>',
-                '<message>', '<time>', '<state>', '<mode>', '<beacon>', '<cycle>', '<otheritem>']
+    generics =['<variable>','<system>','<interface>','<hardware>','<constant>','<statevariable>',
+               '<message>','<time>','<state>','<mode>','<beacon>','<cycle>','<otheritem>']
     self.OUTP.vocab.itos.extend(generics)
     for x in generics:
       self.OUTP.vocab.stoi[x] = self.OUTP.vocab.itos.index(x)

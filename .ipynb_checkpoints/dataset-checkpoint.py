@@ -7,6 +7,7 @@ class Dataset:
     def __init__(self, data_dir, filename): #args datadir, data
         self.path = data_dir + filename
         print("Loading data from" + filename)
+
         self.title = data.Field(sequential=True, batch_first=True, init_token="<start>", eos_token="<eos>",
                                 include_lengths= True)
         self.label = data.Field(sequential=True, batch_first=True, init_token="<start>", eos_token="<eos>")
