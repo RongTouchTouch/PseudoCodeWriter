@@ -169,6 +169,7 @@ class dataset:
     print("ds sizes:",end='\t')
     for ds in [t1d,t2d,t3d,valid]:
       print(len(ds.examples),end='\t')
+      count = 0
       for x in ds:
         x.rawent = x.ent.split(" ; ")
         x.ent = self.vec_ents(x.ent,self.ENT)
@@ -320,5 +321,4 @@ class dataset:
 if __name__=="__main__":
   args = arg.pargs()  
   ds = dataset(args)
-  ds.getBatch()
   
