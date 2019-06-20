@@ -2,47 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ede2257-fb10-4401-b156-cfca6b2a6ce3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/train_data.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/attention_.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/newrelation.vocab" beforeDir="false" afterPath="$PROJECT_DIR$/data/newrelation.vocab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/untitled.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/BuildKG.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/BuildKG.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/CalculateGenericRate.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/CalculateGenericRate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/char_vocab_old.english.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/conll.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/conll.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/coref_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/coref_metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/create_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/create_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/debug_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/debug_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/decoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/decoder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/experiments.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/generate_elmo.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/generate_elmo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/inference_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/inference_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/inference_utils_confidence.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/inference_utils_confidence.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/inference_utils_nooverlap.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/inference_utils_nooverlap.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/inference_utils_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/inference_utils_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/input_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/input_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/lsgn_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/lsgn_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/lsgn_evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/lsgn_evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/lsgn_evaluator_writer.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/lsgn_evaluator_writer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/model_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/model_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/relation_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/relation_metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/scripts/build_custom_kernels.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/scripts/fetch_required_data.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/scripts/filter_embeddings.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/scripts/filter_embeddings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/scripts/get_char_vocab.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/scripts/get_char_vocab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/singleton.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/singleton.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/srl_eval_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/srl_eval_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/srl_kernels.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/srl_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/srl_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/test_single.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/test_single.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/write_single.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/write_single.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lastDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/lastDataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pargs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pargs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/attention.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/attention.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/graphAttn.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/graphAttn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/graph_encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/graph_encoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/last_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/last_graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/newmodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/newmodel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/splan.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/splan.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,26 +23,29 @@
     <SUITE FILE_PATH="coverage/PseudoCodeWriter$pytest_in_test_single_py.coverage" NAME="pytest in test_single.py Coverage Results" MODIFIED="1559386329680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/graph" />
     <SUITE FILE_PATH="coverage/PseudoCodeWriter$lastDataset.coverage" NAME="lastDataset Coverage Results" MODIFIED="1560513198837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PseudoCodeWriter$evaluator.coverage" NAME="evaluator Coverage Results" MODIFIED="1559538256420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/graph" />
+    <SUITE FILE_PATH="coverage/PseudoCodeWriter$attention_.coverage" NAME="attention_ Coverage Results" MODIFIED="1560934573461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
+    <SUITE FILE_PATH="coverage/PseudoCodeWriter$attention.coverage" NAME="attention Coverage Results" MODIFIED="1561006504776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="905177667">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.37" value="1" />
-          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.81" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="conf" value="1" />
-          <entry key="ipynb" value="2" />
-          <entry key="py" value="41" />
+          <entry key="ipynb" value="3" />
+          <entry key="md" value="1" />
+          <entry key="py" value="63" />
           <entry key="sh" value="5" />
           <entry key="tsv" value="5" />
           <entry key="txt" value="4" />
@@ -82,21 +54,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="IPNB" value="2" />
+          <entry key="IPNB" value="3" />
+          <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="41" />
+          <entry key="Python" value="63" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1045" />
+          <entry key="dummy" value="1" />
+          <entry key="py" value="4158" />
           <entry key="tsv" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="1045" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Python" value="4158" />
         </counts>
       </usages-collector>
     </session>
@@ -106,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eval.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="409">
               <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -118,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lastDataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+            <state relative-caret-position="1716">
+              <caret line="278" column="43" selection-start-line="278" selection-start-column="43" selection-end-line="278" selection-end-column="43" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -128,73 +102,101 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/torchtext/data/field.py">
+        <entry file="file://$PROJECT_DIR$/dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="262" selection-start-line="262" selection-end-line="262" />
+            <state relative-caret-position="76">
+              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+                <marker date="1560736028379" expanded="true" signature="1003:1010" ph="..." />
+                <marker date="1560736028379" expanded="true" signature="1037:1044" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/torchtext/data/dataset.py">
+        <entry file="file://$PROJECT_DIR$/models/attention_.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-459">
-              <caret line="247" column="24" lean-forward="true" selection-start-line="247" selection-start-column="24" selection-end-line="247" selection-end-column="24" />
+            <state relative-caret-position="4560">
+              <caret line="240" column="27" lean-forward="true" selection-start-line="240" selection-start-column="27" selection-end-line="240" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/torchtext/data/example.py">
+        <entry file="file://$PROJECT_DIR$/models/graphAttn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-114">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+            <state relative-caret-position="437">
+              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph/BuildKG.py">
+        <entry file="file://$PROJECT_DIR$/models/attention.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-950">
-              <caret line="74" column="36" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
+            <state relative-caret-position="-285">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+                <marker date="1561008961055" expanded="true" signature="1198:1724" ph="..." />
+                <marker date="1561008961055" expanded="true" signature="2970:2971" ph="..." />
+                <marker date="1561008961055" expanded="true" signature="2970:2973" ph="..." />
+                <marker date="1561008961055" expanded="true" signature="3192:6730" ph="..." />
+                <marker date="1561008961055" expanded="true" signature="6728:6729" ph="..." />
+                <marker date="1561008961055" expanded="true" signature="6763:6764" ph="..." />
+                <marker date="1561008961055" expanded="true" signature="6763:6768" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph/Untitled.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
+        <entry file="file://$PROJECT_DIR$/models/encoders.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2325">
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/newmodel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1009">
+              <caret line="128" column="21" selection-start-line="128" selection-start-column="21" selection-end-line="128" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/graph_encoder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-32">
+              <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generator.py">
+          <provider selected="true" editor-type-id="text-editor">
             <state>
-              <selected id="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/train_data.tsv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="43" column="1058" selection-start-line="43" selection-start-column="1058" selection-end-line="43" selection-end-column="1058" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/load_data.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/input-train.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="39" selection-end-line="71" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -224,12 +226,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dataset.py" />
         <option value="$PROJECT_DIR$/graph/srl_model.py" />
         <option value="$PROJECT_DIR$/=/lsgn_evaluator.py" />
         <option value="$PROJECT_DIR$/graph/Untitled.ipynb" />
         <option value="$PROJECT_DIR$/load_data.ipynb" />
         <option value="$PROJECT_DIR$/data/train_data.tsv" />
+        <option value="$PROJECT_DIR$/dataset.py" />
+        <option value="$PROJECT_DIR$/models/graphAttn.py" />
+        <option value="$PROJECT_DIR$/models/attention_.py" />
+        <option value="$PROJECT_DIR$/models/attention.py" />
         <option value="$PROJECT_DIR$/lastDataset.py" />
       </list>
     </option>
@@ -241,8 +246,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="y" value="15" />
+    <option name="x" value="31" />
+    <option name="y" value="17" />
     <option name="width" value="975" />
     <option name="height" value="995" />
   </component>
@@ -269,6 +274,11 @@
               <item name="PseudoCodeWriter" type="462c0819:PsiDirectoryNode" />
               <item name="graph" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PseudoCodeWriter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PseudoCodeWriter" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -278,7 +288,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pytorch-pretrained-BERT" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -295,7 +305,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.lastDataset">
+  <component name="RunManager" selected="Python.attention">
+    <configuration name="attention" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PseudoCodeWriter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/attention.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="attention_" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PseudoCodeWriter" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/attention_.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="evaluator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PseudoCodeWriter" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -360,9 +414,13 @@
       <item itemvalue="Python tests.pytest in test_single.py" />
       <item itemvalue="Python.evaluator" />
       <item itemvalue="Python.lastDataset" />
+      <item itemvalue="Python.attention_" />
+      <item itemvalue="Python.attention" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.attention" />
+        <item itemvalue="Python.attention_" />
         <item itemvalue="Python.lastDataset" />
         <item itemvalue="Python.evaluator" />
         <item itemvalue="Python tests.pytest in test_single.py" />
@@ -391,12 +449,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21543624" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22147651" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35177305" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33049646" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -405,7 +463,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3499246" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -415,12 +473,12 @@
       <window_info anchor="right" id="Database" order="5" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20738254" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.4513889" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3514329" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -429,7 +487,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3499246" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -457,34 +515,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/graph/generate_elmo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/experiments.conf" />
-    <entry file="file://$PROJECT_DIR$/data/preprocessed.test.tsv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/preprocessed.train_.tsv">
-      <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/preprocessed.train.tsv">
-      <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/newrelation.vocab">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -526,9 +556,6 @@
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/JsonSerializer.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/graph/inference_utils_nooverlap.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -586,17 +613,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph/evaluator.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/graph/srl_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/data/input-train.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -619,20 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/load_data.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph/BuildKG.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-950">
-          <caret line="74" column="36" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/torchtext/data/example.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-114">
@@ -640,16 +644,175 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/pycocoevalcap/bleu/bleu_scorer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/pycocoevalcap/bleu/bleu.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/load_data.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/embedding_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/torchtext/data/field.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4807">
+          <caret line="262" selection-start-line="262" selection-end-line="262" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/JsonSerializer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/train_data.tsv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
+        <state relative-caret-position="817">
           <caret line="43" column="1058" selection-start-line="43" selection-start-column="1058" selection-end-line="43" selection-end-column="1058" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/gat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph/BuildKG.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="74" column="36" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/beam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1608">
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2424">
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/newmodel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1009">
+          <caret line="128" column="21" selection-start-line="128" selection-start-column="21" selection-end-line="128" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/encoders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2325">
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/torch/nn/functional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <folding>
+            <element signature="e#28#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/attention.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-285">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1561008961055" expanded="true" signature="1198:1724" ph="..." />
+            <marker date="1561008961055" expanded="true" signature="2970:2971" ph="..." />
+            <marker date="1561008961055" expanded="true" signature="2970:2973" ph="..." />
+            <marker date="1561008961055" expanded="true" signature="3192:6730" ph="..." />
+            <marker date="1561008961055" expanded="true" signature="6728:6729" ph="..." />
+            <marker date="1561008961055" expanded="true" signature="6763:6764" ph="..." />
+            <marker date="1561008961055" expanded="true" signature="6763:6768" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/attention_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4560">
+          <caret line="240" column="27" lean-forward="true" selection-start-line="240" selection-start-column="27" selection-end-line="240" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/graphAttn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/graph_encoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eval.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="409">
           <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -657,17 +820,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/torchtext/data/field.py">
+    <entry file="file://$PROJECT_DIR$/dataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="262" selection-start-line="262" selection-end-line="262" />
+        <state relative-caret-position="76">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1560736028379" expanded="true" signature="1003:1010" ph="..." />
+            <marker date="1560736028379" expanded="true" signature="1037:1044" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lastDataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        <state relative-caret-position="1716">
+          <caret line="278" column="43" selection-start-line="278" selection-start-column="43" selection-end-line="278" selection-end-column="43" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>

@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from models.attention import MultiHeadAttention, MatrixAttn
+from models.attention_ import MultiHeadAttention, MatrixAttn
 from models.list_encoder import list_encode, lseq_encode
 from models.last_graph import graph_encode
 from models.beam import Beam

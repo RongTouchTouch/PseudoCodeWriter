@@ -267,9 +267,6 @@ class dataset:
     data = torch.cat(data,0)
     return data,lens
 
-
-    
-
   def rev_rel(self,ebatch,rbatch):
     vocab = self.ENT.vocab
     for i,ents in enumerate(ebatch):
@@ -280,7 +277,6 @@ class dataset:
       rels = rbatch[i]
       for a,r,b in rels:  
         print(es[a],self.REL.itos[r],es[b])
-      print()
 
   def pad_list(self,l,ent=1):  
     lens = [len(x) for x in l]

@@ -1,207 +1,109 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.parameter import Parameter
 
-class MatrixAttn(nn.Module):
-
-  def __init__(self,linin,linout):
-    super().__init__()
-    self.attnlin = nn.Linear(linin,linout)
-
-  def forward(self,dec,emb):
-    emb,elen = emb
-    emask = torch.arange(0,emb.size(1)).unsqueeze(0).repeat(emb.size(0),1).long().cuda()
-    emask = (emask >= elen.unsqueeze(1)).unsqueeze(1)
-    decsmall = self.attnlin(dec)
-    unnorm = torch.bmm(decsmall,emb.transpose(1,2))
-    unnorm.masked_fill_(emask,-float('inf'))
-    attn = F.softmax(unnorm,dim=2)
-    out = torch.bmm(attn,emb)
-    return out, attn
 
 class BahdanauAttention(nn.Module):
+    """
+    (Simplified) Bahdanau Attention (https://arxiv.org/abs/1409.0473)
+    Implementation is very similar to pytorch.seq2seq.models.attention.BahdanauAttention
+    """
     def __init__(self, num_units, query_size, memory_size):
-        super(BahdanauAttention, self).__init__()
+        """
 
+        :param num_units: internal feature dimension
+        :param query_size: feature dimension for query
+        :param memory_size: feature dimension for memory (value)
+        :param batch_first: if True batch size is the 1st dimension, if False
+            the sequence is first and batch size is second
+        """
+        super(BahdanauAttention, self).__init__()
         self._num_units = num_units
-        self._softmax = nn.Softmax()
+        self._softmax = nn.Softmax(dim=-1)
+        self._tanh = nn.Tanh()
 
         self.query_layer = nn.Linear(query_size, num_units, bias=False)
         self.memory_layer = nn.Linear(memory_size, num_units, bias=False)
         self.alignment_layer = nn.Linear(num_units, 1, bias=False)
+        self.linear_att = Parameter(torch.Tensor(num_units))
 
-    def _score(self, query, keys):
-        # Put the query and the keys into Dense layer
-        processed_query = self.query_layer(query)
-        values = self.memory_layer(keys)
+    def calc_score(self, att_query, att_keys):
+        """
+        Calculate Bahdanau score
 
-        # since the sizes of processed_query i [B x embedding],
-        # we can't directly add it with the keys. therefore, we need
-        # to add extra dimension, so the dimension of the query
-        # now become [B x 1 x alignment unit size]
-        extended_query = processed_query.unsqueeze(1)
+        :param att_query: b x t_q x n
+        :param att_keys: b x t_k x n
+        :return: b x t_q x t_k scores
+        """
 
-        # The original formula is v * tanh(extended_query + values).
-        # We can just use Dense layer and feed tanh as the input
-        alignment = self.alignment_layer(F.tanh(extended_query + values))
+        b, t_k, n = att_keys.size()
+        t_q = att_query.size(1)
 
-        # Now the alignment size is [B x S x 1], We need to squeeze it
-        # so that we can use Softmax later on. Converting to [B x S]
-        return alignment.squeeze(2)
+        att_query = att_query.unsqueeze(2).expand(b, t_q, t_k, n)
+        att_keys = att_keys.unsqueeze(1).expand(b, t_q, t_k, n)
+        sum_qk = att_query + att_keys
+
+        linear_att = self.linear_att
+
+        out = torch.tanh(sum_qk).matmul(linear_att)
+
+        return out
 
     def forward(self, query, keys):
-        # Calculate the alignment score
-        alignment_score = self._score(query, keys)
+        """
 
-        # Put it into softmax to get the weight of every steps
-        weight = F.softmax(alignment_score, dim=-1)
+        :param query: class:`torch.FloatTensor` [batch size, output length, dimensions]): Sequence of
+                queries to query the context.
+        :param keys: class:`torch.FloatTensor` [batch size, query length, dimensions]): Data
+                over which to apply the attention mechanism.
 
-        # To get the context, this is the original formula
-        # context = sum(weight * keys)
-        # In order to multiply those two, we need to reshape the weight
-        # from [B x S] into [B x S x 1] for broacasting.
-        # The multiplication will result in [B x S x embedding]. Remember,
-        # we want the score as the sum over all the steps. Therefore, we will
-        # sum it over the 1st index
-        context = weight.unsqueeze(2) * keys
-        total_context = context.sum(1)
+        :return:
+              context: class:`torch.LongTensor` [batch size, output length, dimensions]):
+              Tensor containing the attended features.
+              weights: class:`torch.FloatTensor` [batch size, output length, query length]):
+              Tensor containing attention weights.
+        """
 
-        return total_context, alignment_score
+        # FC layers to transform query and key
+        processed_query = self.query_layer(query)
+        processed_keys = self.memory_layer(keys)
 
+        # scores: (b x t_q x t_k)
+        scores = self.calc_score(processed_query, processed_keys)
 
-class LuongAttention(nn.Module):
-    _SCORE_FN = {
-        "dot": "_dot_score",
-        "general": "_general_score",
-        "concat": "_concat_score"
-    }
+        # Normalize the scores, softmax over t_k
+        scores_normalized = F.softmax(scores, dim=-1)
 
-    def __init__(self,
-                 attention_window_size,
-                 num_units,
-                 query_size,
-                 memory_size,
-                 alignment="local",
-                 score_fn="dot"):
-        super(LuongAttention, self).__init__()
+        # Calculate the weighted average of the attention inputs according to
+        # the scores
+        # context: (b x t_q x n)
+        context = torch.bmm(scores_normalized, keys)
 
-        if score_fn not in self._SCORE_FN.keys():
-            raise ValueError()
-
-        self._attention_window_size = attention_window_size
-        self._softmax = nn.Softmax()
-        self._score_fn = score_fn
-        self._alignment = alignment
-
-        self.query_layer = nn.Linear(query_size, num_units, bias=False)
-        self.predictive_alignment_layer = nn.Linear(num_units, 1, bias=False)
-        self.alignment_layer = nn.Linear(num_units, 1, bias=False)
-
-        if score_fn == "general":
-            self.general_memory_layer = nn.Linear(
-                memory_size, query_size, bias=False)
-        elif score_fn == "concat":
-            self.concat_memory_layer1 = nn.Linear(
-                2 * memory_size, num_units, bias=False)
-            self.concat_memory_layer2 = nn.Linear(num_units, 1, bias=False)
-
-    def _dot_score(self, query, keys):
-        depth = query.size(-1)
-        key_units = keys.size(-1)
-        if depth != key_units:
-            raise ValueError(
-                "Incompatible inner dimensions between query and keys. "
-                "Query has units: %d. Keys have units: %d. "
-                "Dot score requires you to have same size between num_units in "
-                "query and keys" % (depth, key_units))
-
-        # Expand query to [B x 1 x embedding dim] for broadcasting
-        extended_query = query.unsqueeze(1)
-
-        # Transpose the keys so that we can multiply it
-        tkeys = keys.transpose(1, 2)
-
-        alignment = torch.matmul(extended_query, tkeys)
-
-        # Result of the multiplication will be in size [B x 1 x embedding dim]
-        # we can safely squeeze the dimension
-        return alignment.squeeze(1)
-
-    def _general_score(self, query, keys):
-        weighted_keys = self.general_memory_layer(keys)
-        extended_query = query.unsqueeze(1)
-        weighted_keys = weighted_keys.transpose(1, 2)
-
-        alignment = torch.matmul(extended_query, weighted_keys)
-        return alignment.squeeze(1)
-
-    def _concat_score(self, query, keys):
-        expanded_query = query.unsqueeze(1).expand(*keys.size())
-        concatenated_hidden = torch.cat([expanded_query, keys], dim=2)
-        weighted_concatenated_hidden = self.concat_memory_layer1(
-            concatenated_hidden)
-        temp_score = F.tanh(weighted_concatenated_hidden)
-        alignment = self.concat_memory_layer2(temp_score)
-
-        return alignment.squeeze(2)
-
-    def forward(self, query, keys, key_lengths):
-        score_fn = getattr(self, self._SCORE_FN[self._score_fn])
-        alignment_score = score_fn(query, keys)
-
-        weight = F.softmax(alignment_score, dim=-1)
-
-        if self._alignment == "local":
-            extended_key_lengths = key_lengths.unsqueeze(1)
-            preprocessed_query = self.query_layer(query)
-
-            activated_query = F.tanh(preprocessed_query)
-            sigmoid_query = F.sigmoid(
-                self.predictive_alignment_layer(activated_query))
-            predictive_alignment = extended_key_lengths * sigmoid_query
-
-            ai_start = predictive_alignment - self._attention_window_size
-            ai_end = predictive_alignment + self._attention_window_size
-
-            std = torch.FloatTensor([self._attention_window_size / 2.]).pow(2)
-            alignment_point_dist = (
-                extended_key_lengths - predictive_alignment).pow(2)
-
-            alignment_point_dist = (
-                -(alignment_point_dist / (2 * std[0]))).exp()
-            weight = weight * alignment_point_dist
-
-            contexts = []
-            for i in range(weight.size(0)):
-                start = ai_start[i].int().data.numpy()[0]
-                end = ai_end[i].int().data.numpy()[0]
-
-                aligned_weight = weight[i, start:end]
-                aligned_keys = keys[i, start:end]
-
-                aligned_context = aligned_weight.unsqueeze(1) * aligned_keys
-                contexts.append(aligned_context.sum(0))
-
-            total_context = torch.stack(contexts, 0)
-        elif self._alignment == "global":
-            context = weight.unsqueeze(2) * keys
-            total_context = context.sum(1)
-
-        return total_context, alignment_score
-
-    @property
-    def attention_window_size(self):
-        return self._attention_window_size
+        return context, scores_normalized
 
 
 class MultiHeadAttention(nn.Module):
+    """
+        (Simplified) Multi-Head Attention (https://arxiv.org/abs/1706.03762)
+        Implementation is very similar to https://github.com/KinglittleQ/GST-Tacotron
+        """
     def __init__(self,
                  query_dim,
                  key_dim,
                  num_units,
-                 dropout_p=0.5,
+                 dropout=0.5,
                  h=8,
                  is_masked=False):
+        """
+
+        :param query_dim: feature dimension for query
+        :param key_dim: feature dimension for keys (memory)
+        :param num_units: internal feature dimension
+        :param dropout:
+        :param h: times for concat dk = num_units / h
+        :param is_masked:
+        """
         super(MultiHeadAttention, self).__init__()
 
         if query_dim != key_dim:
@@ -214,50 +116,69 @@ class MultiHeadAttention(nn.Module):
 
         self._num_units = num_units
         self._h = h
-        self._key_dim = torch.tensor(key_dim,requires_grad=False).float()
-        self._dropout_p = dropout_p
+        self._key_dim = torch.tensor(key_dim, requires_grad=False).float()
+        self._dropout = dropout
         self._is_masked = is_masked
 
         self.query_layer = nn.Linear(query_dim, num_units, bias=False)
         self.key_layer = nn.Linear(key_dim, num_units, bias=False)
-        self.value_layer = nn.Linear(key_dim, num_units, bias=False)
+        self.value_layer = nn.Linear(key_dim,num_units, bias=False)
         self.bn = nn.BatchNorm1d(num_units)
         self.ln = nn.LayerNorm(num_units)
 
-    def forward(self, query, keys, mask=None):
-        Q = self.query_layer(query)
-        K = self.key_layer(keys)
-        V = self.value_layer(keys)
+    def forward(self, query, keys):
+        processed_query = self.query_layer(query)
+        processed_key = self.key_layer(keys)
+        processed_value = self.value_layer(keys)
 
         # split each Q, K and V into h different values from dim 2
         # and then merge them back together in dim 0
-        chunk_size = int(self._num_units / self._h)
-        Q = torch.cat(Q.split(split_size=chunk_size, dim=2), dim=0)
-        K = torch.cat(K.split(split_size=chunk_size, dim=2), dim=0)
-        V = torch.cat(V.split(split_size=chunk_size, dim=2), dim=0)
+        split_size = self._num_units // self.h
+        processed_query = torch.cat(processed_query.split(split_size=split_size, dim=2), dim=0)
+        processed_key = torch.cat(processed_key.split(split_size=split_size, dim=2), dim=0)
+        processed_value = torch.cat(processed_value.split(split_size=split_size, dim=2), dim=0)
 
         # calculate QK^T
-        attention = torch.matmul(Q, K.transpose(1, 2))
+        attention = torch.matmul(processed_query, processed_key.transpose(1,2))
         # normalize with sqrt(dk)
-        attention = attention / torch.sqrt(self._key_dim).cuda()
+        attention = attention / (self._key_dim ** 0.5)
+        # use masking (usually for decoder) to prevent leftward
+        # information flow and retains auto-regressive property
+        # as said in the paper
+        if self._is_masked:
+            diag_vals = attention[0].sign().abs()
+            diag_mat = diag_vals.tril()
+            diag_mat = diag_mat.unsqueeze(0).expand(attention.size())
+            mask = torch.ones(diag_mat.size()) * (-2 ** 32 + 1)
+            # this is some trick that I use to combine the lower diagonal
+            # matrix and its masking. (diag_mat-1).abs() will reverse the value
+            # inside diag_mat, from 0 to 1 and 1 to zero. with this
+            # we don't need loop operation andn could perform our calculation
+            # faster
+            attention = (attention * diag_mat) + (mask * (diag_mat - 1).abs())
 
-        if mask is not None:
-          mask = mask.repeat(self._h,1,1)
-          attention.masked_fill_(mask,-float('inf'))
         attention = F.softmax(attention, dim=-1)
         # apply dropout
-        attention = F.dropout(attention, self._dropout_p)
+        # attention = F.dropout(attention, self._dropout_p)
         # multiplyt it with V
-        attention = torch.matmul(attention, V)
+        attention = torch.matmul(attention, processed_value)
         # convert attention back to its input original size
         restore_chunk_size = int(attention.size(0) / self._h)
         attention = torch.cat(
             attention.split(split_size=restore_chunk_size, dim=0), dim=2)
-        # residual connection
-        attention += query
-        # apply batch normalization
-        #attention = self.bn(attention.transpose(1, 2)).transpose(1, 2)
-        # apply layer normalization
-        #attention = self.ln(attention)
 
         return attention
+
+
+class MatrixAttention(nn.Module):
+    def __init__(self):
+        super(MatrixAttention, self).__init__()
+
+
+if __name__ == "__main__":
+    ba = BahdanauAttention(256, 256, 256)
+    query = torch.randn(5, 1, 256)
+    keys = torch.randn(5, 5, 256)
+    output, weights = ba(query, keys)
+    print(output.shape)
+    print(weights.shape)

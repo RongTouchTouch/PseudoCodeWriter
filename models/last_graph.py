@@ -3,7 +3,7 @@ import math
 from torch import nn
 from torch.nn import functional as F
 from models.graphAttn import GAT
-from models.attention import MultiHeadAttention
+from models.attention_ import MultiHeadAttention
 
 
 def gelu(x):
