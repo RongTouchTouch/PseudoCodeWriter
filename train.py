@@ -129,7 +129,7 @@ def test():
     ds = dataset(args)
     args = dynArgs(args, ds)
     m = model(args)
-    m.torch.load_state_dict(torch.load( "result/0.vloss-4.184205.lr-0.1"))
+    torch.load_state_dict(torch.load( "result/0.vloss-4.184205.lr-0.1"))
     m.eval()
    # param = m.state_dict()
    # for k,v in param.items():

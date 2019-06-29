@@ -9,12 +9,12 @@ class BahdanauAttention(nn.Module):
     (Simplified) Bahdanau Attention (https://arxiv.org/abs/1409.0473)
     Implementation is very similar to pytorch.seq2seq.models.attention.BahdanauAttention
     """
-    def __init__(self, num_units, query_size, memory_size):
+    def __init__(self, num_units, query_dim, memory_dim):
         """
 
         :param num_units: internal feature dimension
-        :param query_size: feature dimension for query
-        :param memory_size: feature dimension for memory (value)
+        :param query_dim: feature dimension for query
+        :param memory_dim: feature dimension for memory (value)
         :param batch_first: if True batch size is the 1st dimension, if False
             the sequence is first and batch size is second
         """
@@ -23,8 +23,8 @@ class BahdanauAttention(nn.Module):
         self._softmax = nn.Softmax(dim=-1)
         self._tanh = nn.Tanh()
 
-        self.query_layer = nn.Linear(query_size, num_units, bias=False)
-        self.memory_layer = nn.Linear(memory_size, num_units, bias=False)
+        self.query_layer = nn.Linear(query_dim, num_units, bias=False)
+        self.memory_layer = nn.Linear(memory_dim, num_units, bias=False)
         self.alignment_layer = nn.Linear(num_units, 1, bias=False)
         self.linear_att = Parameter(torch.Tensor(num_units))
 
@@ -139,7 +139,7 @@ class MultiHeadAttention(nn.Module):
         processed_value = torch.cat(processed_value.split(split_size=split_size, dim=2), dim=0)
 
         # calculate QK^T
-        attention = torch.matmul(processed_query, processed_key.transpose(1,2))
+        attention = torch.matmul(processed_query, processed_key.transpose(1, 2))
         # normalize with sqrt(dk)
         attention = attention / (self._key_dim ** 0.5)
         # use masking (usually for decoder) to prevent leftward
@@ -173,6 +173,9 @@ class MultiHeadAttention(nn.Module):
 class MatrixAttention(nn.Module):
     def __init__(self):
         super(MatrixAttention, self).__init__()
+
+    def forward(self, *input):
+        return
 
 
 if __name__ == "__main__":

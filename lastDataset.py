@@ -61,6 +61,7 @@ class dataset:
       adj[b,d] = 1 
       adj[d,a] = 1
     rel = torch.LongTensor(rel)
+    print(rel)
     return (adj,rel)
   
   def adjToSparse(self,adj):
@@ -173,6 +174,7 @@ class dataset:
       for x in ds:
         x.rawent = x.ent.split(" ; ")
         x.ent = self.vec_ents(x.ent,self.ENT)
+        # print(x.ent)
         x.rel = self.mkGraphs(x.rel,len(x.ent[1]))
         if args.sparse:
           x.rel = (self.adjToSparse(x.rel[0]),x.rel[1])
@@ -180,6 +182,8 @@ class dataset:
         x.out = [y.split("_")[0]+">" if "_" in y else y for y in x.out]
         x.sordertgt = torch.LongTensor([int(y)+3 for y in x.sorder.split(" ")])
         x.sorder = [[int(z) for z in y.strip().split(" ")] for y in x.sorder.split("-1")[:-1]]
+        print("tgt", x.sordertgt)
+        print("sorder",x.sorder)
       ds.fields["tgt"] = self.TGT
       ds.fields["rawent"] = data.RawField()
       ds.fields["sordertgt"] = data.RawField()
@@ -204,6 +208,8 @@ class dataset:
       x.out = [y.split("_")[0]+">" if "_" in y else y for y in x.out]
       x.sordertgt = torch.LongTensor([int(y)+3 for y in x.sorder.split(" ")])
       x.sorder = [[int(z) for z in y.strip().split(" ")] for y in x.sorder.split("-1")[:-1]]
+      print("sorder",x.sorder)
+      print("tgt", x.sordertgt)
     ds.fields["tgt"] = self.TGT
     ds.fields["rawent"] = data.RawField()
     ds.fields["sordertgt"] = data.RawField()
