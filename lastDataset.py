@@ -182,6 +182,7 @@ class dataset:
         x.out = [y.split("_")[0]+">" if "_" in y else y for y in x.out]
         x.sordertgt = torch.LongTensor([int(y)+3 for y in x.sorder.split(" ")])
         x.sorder = [[int(z) for z in y.strip().split(" ")] for y in x.sorder.split("-1")[:-1]]
+        print("title",x.src)
         print("tgt", x.sordertgt)
         print("sorder",x.sorder)
       ds.fields["tgt"] = self.TGT

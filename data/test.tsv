@@ -1,1 +1,0 @@
-On initialization, ATP generates TrainType according to DataPlugContent.CCTrainType from the CC data plug.	ATP ; TrainType ; DataPlugContent.CCTrainType ; CC data plug 	<System> <Variable> <Variable> <Interface>	1 0 0；2 0 3；1 1 2	def <Variable_1>(k): return <Variable_2>	1 2 6 4 -1
