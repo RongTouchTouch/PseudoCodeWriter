@@ -136,6 +136,8 @@ def test():
        # print (k)
        # print (v)
 if __name__=="__main__":
+  import sys
+  sys.argv = ["", "-save", "out"]
   args = pargs()
   main(args)
   # test()
